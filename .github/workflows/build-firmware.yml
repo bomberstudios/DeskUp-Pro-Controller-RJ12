@@ -1,0 +1,54 @@
+name: Build Firmware
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build S3
+        uses: esphome/build-action@v7
+        with:
+          yaml-file: deskup-pro-controller.yaml
+
+      - name: Build C3
+        uses: esphome/build-action@v7
+        with:
+          yaml-file: deskup-pro-controller-c3.yaml
+
+      - name: Build C6
+        uses: esphome/build-action@v7
+        with:
+          yaml-file: deskup-pro-controller-c6.yaml
+      # - name: Copy firmware and update manifests
+      #   run: |
+      #     BUILD_DIR=.esphome/build/deskup-pro/.pioenvs/deskup-pro
+
+      #     cp $BUILD_DIR/firmware.factory.bin ./firmware/deskup-pro.factory.bin
+      #     cp $BUILD_DIR/firmware.ota.bin     ./firmware/deskup-pro.ota.bin
+      #     MD5=$(md5sum ./firmware/deskup-pro.ota.bin | awk '{print $1}')
+      #     echo "$MD5" > ./firmware/firmware.md5
+      #     sed -i "s/\"md5\": \"[a-f0-9]*\"/\"md5\": \"$MD5\"/" manifest.json
+
+      #     cp $BUILD_DIR/firmware.factory.bin ./firmware-c3/deskup-pro.factory.bin
+      #     cp $BUILD_DIR/firmware.ota.bin     ./firmware-c3/deskup-pro.ota.bin
+      #     MD5=$(md5sum ./firmware-c3/deskup-pro.ota.bin | awk '{print $1}')
+      #     echo "$MD5" > ./firmware-c3/firmware.md5
+      #     sed -i "s/\"md5\": \"[a-f0-9]*\"/\"md5\": \"$MD5\"/" manifest-c3.json
+
+      #     cp $BUILD_DIR/firmware.factory.bin ./firmware-c6/deskup-pro.factory.bin
+      #     cp $BUILD_DIR/firmware.ota.bin     ./firmware-c6/deskup-pro.ota.bin
+      #     MD5=$(md5sum ./firmware-c6/deskup-pro.ota.bin | awk '{print $1}')
+      #     echo "$MD5" > ./firmware-c6/firmware.md5
+      #     sed -i "s/\"md5\": \"[a-f0-9]*\"/\"md5\": \"$MD5\"/" manifest-c6.json
+      # - name: Commit firmware
+      #   run: |
+      #     git config user.name  "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
+      #     git add firmware/ firmware-c3/ firmware-c6/ manifest*.json
+      #     git diff --cached --quiet || git commit -m "chore: update firmware binaries and manifests"
+      #     git push
