@@ -40,6 +40,7 @@ _If your desk works but is not in the list please let us know by logging an issu
 - IKEA Mittzon
 - Vonhaus Desk with controller model: M200-23-CH
 - Eureka Ergonomics standing desk with control box: erk-cb-2m-bca84a
+- Fezibo
 
 
 ## Working Desks in more Detail
@@ -159,7 +160,7 @@ I had to enable/toggle “send wake-up command” because the controller goes to
 
 ## Fully Jarvis
 Confirmed working on controller:
-- Jiecang JCB36N2CA-230 - confirmed working by user PedroTorresM with 1 rendering issue reported with the memory preset sensors displaying in mm instead of cms, see details in <a href="https://github.com/SmartHomeGuys/DeskUp-Pro-Controller-RJ12/issues/11">issue 11</a>.
+- Jiecang JCB36N2CA-230 - confirmed working by user PedroTorresM with 1 rendering issue reported with the memory preset sensors displaying incorrect cms values, see details in <a href="https://github.com/SmartHomeGuys/DeskUp-Pro-Controller-RJ12/issues/11">issue 11</a>.
 
 
 ## Links to other community info used when compiling this list
