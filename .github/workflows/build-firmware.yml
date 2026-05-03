@@ -57,8 +57,8 @@ jobs:
 
       - name: Commit firmware
         run: |
-          git config user.name  "${{ github.actor }}"
-          git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+          git config user.name  "Ale Muñoz"
+          git config user.email "bomberstudios@gmail.com"
           git add firmware/ firmware-c3/ firmware-c6/ manifest*.json
           git diff --cached --quiet || git commit -m "chore: update firmware binaries and manifests"
           git push
