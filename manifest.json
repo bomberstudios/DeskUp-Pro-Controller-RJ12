@@ -14,7 +14,7 @@
       ],
       "ota": 
         {
-          "md5": "4ffcbb0c969a54c7a9fc6a6ea0f33a6f",
+          "md5": "83c038cd933596641b4ee804244a0b13",
           "path": "firmware/deskup-pro.ota.bin",
           "release_url": "https://github.com/SmartHomeGuys/DeskUp-Pro-Controller-RJ12/blob/main/CHANGELOG.md",
           "summary": ""
