@@ -1,5 +1,5 @@
 substitutions:
-  name: "deskup-pro-c6"
+  name: "deskup-pro"
   friendly_name: "DeskUp Pro Controller"
 
   #Default to the physical Min and Max height limits for a 
