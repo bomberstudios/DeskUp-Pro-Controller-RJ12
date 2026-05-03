@@ -10,20 +10,23 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Build S3
+      # TODO: Find a way to build all three firmwares in one step,
+      # to avoid downloading the toolchain multiple times. Maybe
+      # by using the Makefile already in the repo.
+      - name: Build firmwares
         uses: esphome/build-action@v7
         with:
-          yaml-file: deskup-pro-controller.yaml
+          yaml-file: "deskup-pro-controller.yaml deskup-pro-controller-c3.yaml deskup-pro-controller-c6.yaml"
 
-      - name: Build C3
-        uses: esphome/build-action@v7
-        with:
-          yaml-file: deskup-pro-controller-c3.yaml
+      # - name: Build C3
+      #   uses: esphome/build-action@v7
+      #   with:
+      #     yaml-file: deskup-pro-controller-c3.yaml
 
-      - name: Build C6
-        uses: esphome/build-action@v7
-        with:
-          yaml-file: deskup-pro-controller-c6.yaml
+      # - name: Build C6
+      #   uses: esphome/build-action@v7
+      #   with:
+      #     yaml-file: deskup-pro-controller-c6.yaml
       # - name: Copy firmware and update manifests
       #   run: |
       #     BUILD_DIR=.esphome/build/deskup-pro/.pioenvs/deskup-pro
