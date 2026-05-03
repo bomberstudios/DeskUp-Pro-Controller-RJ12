@@ -13,8 +13,9 @@ jobs:
       - uses: actions/checkout@v6
 
       # TODO: Find a way to build all three firmwares in one step,
-      # to avoid downloading the toolchain multiple times. Maybe
-      # by using the Makefile already in the repo.
+      # to avoid downloading the toolchain multiple times. This will
+      # be way faster if/when <https://github.com/esphome/build-action/pull/100>
+      # is accepted
       - name: Build S3
         uses: esphome/build-action@v7
         with:
